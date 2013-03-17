@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="simpleregistration" default="package" basedir=".">
+	<description>GiBi SimpleRegistration</description>
+	<property name="component.name" value="com_simpleregistration" />
+	<property name="dir.component" location="../component" />
+	<property name="dir.release" location="../release" />
+	<property name="dir.deploy" location="/var/www/simpleregistration" />
+
+	<target name="package">
+		<echo message="Building the ZIP packages..." />
+		<zip destfile="${dir.release}/${component.name}.zip" basedir="${dir.component}" whenempty="fail" />
+	</target>
+
+	<target name="Deploy on local test site (/var/www)">
+		<echo message="Deploying locally..." />
+		<tstamp>
+			<format property="build.date" pattern="yyyy-MM-dd" />
+		</tstamp>
+		<!-- component -->
+		<copy file="${dir.component}/belpdf.xml" tofile="${dir.deploy}/administrator/components/${component.name}/belpdf.xml" overwrite="true">
+			<filterchain>
+				<replacetokens>
+					<token key="DATE" value="${build.date}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+		<copy todir="${dir.deploy}/administrator/components/${component.name}/" overwrite="true">
+			<fileset dir="${dir.component}/backend/"></fileset>
+		</copy>
+		<copy todir="${dir.deploy}/components/${component.name}/" overwrite="true">
+			<fileset dir="${dir.component}/frontend/"></fileset>
+		</copy>
+		<copy todir="${dir.deploy}/administrator/language/it-IT/" overwrite="true">
+			<fileset dir="${dir.component}/backend/language">
+				<include name="it-IT*"></include>
+			</fileset>
+		</copy>
+		<copy todir="${dir.deploy}/administrator/language/en-GB/" overwrite="true">
+			<fileset dir="${dir.component}/backend/language">
+				<include name="en-GB*"></include>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="Clean releases">
+		<echo message="Cleaning the project..." />
+		<delete includeemptydirs="true">
+			<fileset dir="${dir.release}/">
+				<include name="*.zip" />
+			</fileset>
+		</delete>
+	</target>
+
+</project>
