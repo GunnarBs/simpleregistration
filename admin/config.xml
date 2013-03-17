@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <fieldset name="component">
+    <field name="requestpassword" default="0" type="radio" label="SIMPLEREGISTRATION_PARAMS_REQUESTPASSWORD_LABEL" description="SIMPLEREGISTRATION_PARAMS_REQUESTPASSWORD_DESC">
+      <option value="0">JNo</option>
+      <option value="1">JYes</option>
+    </field>
+  </fieldset>
+</config>

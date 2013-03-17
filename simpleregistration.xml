@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0" method="upgrade">
+	<name>Simple Registration</name>
+	<version>2.3</version>
+	<creationDate>2012-10-09</creationDate>
+	<author>GiBiLogic</author>
+	<authorEmail>info@gibilogic.com</authorEmail>
+	<authorUrl>http://www.gibilogic..com</authorUrl>
+	<copyright>Copyright (C) 2011-2012 GiBiLogic. All rights reserved</copyright>
+	<license>GNU General Public License &lt;http://www.fsf.org/licensing/licenses/gpl.html&gt;</license>
+	<description>SIMPLEREGISTRATION_DESCRIPTION</description>
+	<administration>
+		<menu link="option=com_simpleregistration">com_simpleregistration</menu>
+		<files folder="admin">
+			<filename>simpleregistration.php</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<folder>language</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="language/admin">
+			<language tag="en-GB">en-GB.com_simpleregistration.ini</language>
+			<language tag="en-GB">en-GB.com_simpleregistration.menu.ini</language>
+			<language tag="en-GB">en-GB.com_simpleregistration.sys.ini</language>
+			<language tag="it-IT">it-IT.com_simpleregistration.ini</language>
+			<language tag="it-IT">it-IT.com_simpleregistration.menu.ini</language>
+			<language tag="it-IT">it-IT.com_simpleregistration.sys.ini</language>
+		</languages>
+	</administration>
+
+	<files folder="site">
+		<filename>simpleregistration.php</filename>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<folder>views</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB.com_simpleregistration.ini</language>
+		<language tag="it-IT">it-IT.com_simpleregistration.ini</language>
+    </languages>
+</install>

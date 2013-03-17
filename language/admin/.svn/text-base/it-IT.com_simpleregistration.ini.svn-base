@@ -1,0 +1,9 @@
+# @version		$Id: it-IT.com_simpleregistration.ini 2012-04-09 18:12:00Z zanardi $
+# @package		GiBi SimpleRegistration
+# @author		GiBiLogic
+# @authorUrl	http://www.gibilogic.com
+# @copyright 	(C) 2011-2012 GiBiLogic
+# @license 		http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL, see LICENSE.php
+
+# Install message
+SIMPLEREGISTRATION_DESCRIPTION=<img src="http://extensions.gibilogic.com/images/gibilogicextensions-150x150.png" alt="" style="float: left;margin: 0 10px 10px 0" /><h1>GiBi Simpleregistration</h1><h2>Una estensione per Joomla da <a href="http://www.gibilogic.com">GiBiLogic</a></h2><p>Questo componente permette a un utente di registrarsi inserendo semplicemente il suo indirizzo e-mail: verrà usato sia come "Nome completo" che come "Username"; la password verrà creata in modo casuale e spedita all'utente.</p><p>Per usare questo componente, crea una voce di menu che punta a Simple Registration -> Registration Form.</p><p>Scopri altre estensioni da <strong>GiBiLogic</strong> sul sito <a href="http://extensions.gibilogic.com">extensions.gibilogic.com</a></p>
