@@ -36,6 +36,10 @@ class SimpleregistrationController extends JControllerLegacy
 	// create new user
 	function save()
 	{
+    if (JRequest::getVar('return','')) {
+        $this->_url = base64_decode(JRequest::getVar('return',''));
+    }
+
 		jimport('joomla.filter.filterinput');
 
 		$app = &JFactory::getApplication();
@@ -123,7 +127,7 @@ class SimpleregistrationController extends JControllerLegacy
 			$app->login($credentials);
 		}
 
-		$url = JRoute::_('index.php');
+		//$url = JRoute::_('index.php');
 		JController::setRedirect($this->_url, $message);
 	}
 
