@@ -118,6 +118,11 @@ class SimpleregistrationController extends JControllerLegacy
 				$message = JText::_('COM_USERS_REGISTRATION_ACTIVATE_SUCCESS');
 		}
 
+		if ($params->get('autologin', 0) == 1) {
+			$credentials = array("username" => $data['username'], "password" => $data['password']);
+			$app->login($credentials);
+		}
+
 		$url = JRoute::_('index.php');
 		JController::setRedirect($this->_url, $message);
 	}

@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+@version      build.xml 2013-08-28 07:54:00Z matteo
+@author       GiBiLogic <info@gibilogic.com>
+@authorUrl    http://www.gibilogic.com
+@copyright    Copyright (C) 2013 GiBiLogic. All rights reserved.
+@license      GNU/GPLv2
+@description  Ant build file
+ -->
+
 <project name="simpleregistration" default="package" basedir=".">
 	<description>GiBi SimpleRegistration</description>
+  <property file="build.properties" />
 	<property name="component.name" value="com_simpleregistration" />
-	<property name="dir.component" location="../component" />
+	<property name="module.name" value="mod_simpleregistration" />
+	<property name="package.name" value="pkg_simpleregistration" />
+	<property name="dir.component" location="../src/component" />
+	<property name="dir.module" location="../src/module" />
 	<property name="dir.release" location="../release" />
-	<property name="dir.deploy" location="/var/www/simpleregistration" />
 
 	<target name="package">
 		<echo message="Building the ZIP packages..." />
 		<zip destfile="${dir.release}/${component.name}.zip" basedir="${dir.component}" whenempty="fail" />
+		<zip destfile="${dir.release}/${module.name}.zip" basedir="${dir.module}" whenempty="fail" />
+		<zip destfile="${dir.release}/${package.name}.zip" basedir="${dir.release}" excludes="${package.name}*" whenempty="fail" />
 	</target>
 
 	<target name="Deploy on local test site (/var/www)">
@@ -17,29 +31,44 @@
 			<format property="build.date" pattern="yyyy-MM-dd" />
 		</tstamp>
 		<!-- component -->
-		<copy file="${dir.component}/belpdf.xml" tofile="${dir.deploy}/administrator/components/${component.name}/belpdf.xml" overwrite="true">
+		<copy file="${dir.component}/simpleregistration.xml" tofile="${path.deploy.local}/administrator/components/${component.name}/simpleregistration.xml" overwrite="true">
 			<filterchain>
 				<replacetokens>
 					<token key="DATE" value="${build.date}" />
 				</replacetokens>
 			</filterchain>
 		</copy>
-		<copy todir="${dir.deploy}/administrator/components/${component.name}/" overwrite="true">
+		<copy todir="${path.deploy.local}/administrator/components/${component.name}/" overwrite="true">
 			<fileset dir="${dir.component}/backend/"></fileset>
 		</copy>
-		<copy todir="${dir.deploy}/components/${component.name}/" overwrite="true">
+		<copy todir="${path.deploy.local}/components/${component.name}/" overwrite="true">
 			<fileset dir="${dir.component}/frontend/"></fileset>
 		</copy>
-		<copy todir="${dir.deploy}/administrator/language/it-IT/" overwrite="true">
-			<fileset dir="${dir.component}/backend/language">
+		<copy todir="${path.deploy.local}/administrator/language/it-IT/" overwrite="true">
+			<fileset dir="${dir.component}/language/backend">
 				<include name="it-IT*"></include>
 			</fileset>
 		</copy>
-		<copy todir="${dir.deploy}/administrator/language/en-GB/" overwrite="true">
-			<fileset dir="${dir.component}/backend/language">
+		<copy todir="${path.deploy.local}/administrator/language/en-GB/" overwrite="true">
+			<fileset dir="${dir.component}/language/backend">
 				<include name="en-GB*"></include>
 			</fileset>
 		</copy>
+		<copy todir="${path.deploy.local}/language/it-IT/" overwrite="true">
+			<fileset dir="${dir.component}/language/frontend">
+				<include name="it-IT*"></include>
+			</fileset>
+		</copy>
+		<copy todir="${path.deploy.local}/language/en-GB/" overwrite="true">
+			<fileset dir="${dir.component}/language/frontend">
+				<include name="en-GB*"></include>
+			</fileset>
+		</copy>
+    <!-- module -->
+    <copy todir="${path.deploy.local}/modules/${module.name}/" overwrite="true">
+			<fileset dir="${dir.module}/"></fileset>
+		</copy>
+
 	</target>
 
 	<target name="Clean releases">

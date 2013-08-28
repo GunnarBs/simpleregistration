@@ -18,27 +18,27 @@
 	]]></description>
 	<administration>
 		<menu link="option=com_simpleregistration">com_simpleregistration</menu>
-		<files folder="admin">
+		<files folder="backend">
 			<filename>simpleregistration.php</filename>
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
 			<folder>views</folder>
 		</files>
-		<languages folder="language/admin">
+		<languages folder="language/backend">
 			<language tag="en-GB">en-GB.com_simpleregistration.ini</language>
 			<language tag="en-GB">en-GB.com_simpleregistration.sys.ini</language>
 			<language tag="it-IT">it-IT.com_simpleregistration.ini</language>
 			<language tag="it-IT">it-IT.com_simpleregistration.sys.ini</language>
 		</languages>
 	</administration>
-	<files folder="site">
+	<files folder="frontend">
 		<filename>simpleregistration.php</filename>
 		<filename>controller.php</filename>
 		<filename>index.html</filename>
 		<folder>views</folder>
 	</files>
-	<languages folder="language">
+	<languages folder="language/frontend">
 		<language tag="en-GB">en-GB.com_simpleregistration.ini</language>
 		<language tag="it-IT">it-IT.com_simpleregistration.ini</language>
     </languages>
