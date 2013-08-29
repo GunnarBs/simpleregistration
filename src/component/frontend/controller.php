@@ -36,8 +36,8 @@ class SimpleregistrationController extends JControllerLegacy
 	// create new user
 	function save()
 	{
-    if ($this->app->get('return','')) {
-        $this->_url = base64_decode(JFactory::getApplication()->input->get('return',''));
+    if ($this->app->input->get('return','')) {
+        $this->url = base64_decode(JFactory::getApplication()->input->get('return',''));
     }
 
 		jimport('joomla.filter.filterinput');
@@ -51,7 +51,7 @@ class SimpleregistrationController extends JControllerLegacy
 		if ($this->db->loadResult() > 0) {
 			$message = "COM_SIMPLEREGISTRATION_EMAIL_EXIST";
 			$type = "error";
-			$this->setRedirect($this->_url, $message, $type);
+			$this->setRedirect($this->url, $message, $type);
 			return false;
 		}
 
@@ -121,7 +121,7 @@ class SimpleregistrationController extends JControllerLegacy
       $this->app->login($credentials);
 		}
 
-		JController::setRedirect($this->_url, $message);
+		$this->setRedirect($this->url, $message);
 	}
 
 }
