@@ -5,7 +5,7 @@
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
-		<field name="generateusername" default="0" type="radio" class="btn-group" label="SIMPLEREGISTRATION_PARAMS_GENERATEUSERNAME_LABEL" description="SIMPLEREGISTRATION_PARAMS_GENERATEUSERNAME_DESC">
+		<field name="extractusername" default="0" type="radio" class="btn-group" label="SIMPLEREGISTRATION_PARAMS_EXTRACTUSERNAME_LABEL" description="SIMPLEREGISTRATION_PARAMS_EXTRACTUSERNAME_DESC">
 			<option value="0">JNo</option>
 			<option value="1">JYes</option>
 		</field>
