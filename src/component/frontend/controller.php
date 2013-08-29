@@ -1,8 +1,6 @@
 <?php
-
-defined('_JEXEC') or die('The way is shut');
 /**
- * @version		  $Id: controller.php 2013-03-17 15:25:00Z zanardi $
+ * @version		  controller.php 2013-08-29 20:25:00 UTC zanardi
  * @package		  GiBi SimpleRegistration
  * @author      GiBiLogic
  * @authorEmail info@gibilogic.com
@@ -10,25 +8,27 @@ defined('_JEXEC') or die('The way is shut');
  * @copyright	  Copyright (C) 2011-2013 GiBiLogic. All rights reserved.
  * @license		  GNU/GPL v2 or later
  */
+defined('_JEXEC') or die('The way is shut');
 jimport('joomla.application.component.controller');
 jimport('joomla.html.parameter');
 
 class SimpleregistrationController extends JControllerLegacy
 {
 
-	private $_url;
+	private $url = 'index.php?option=com_simpleregistration&view=registrationform';
 
 	function __construct($config=array())
 	{
-		$this->_url = 'index.php?option=com_simpleregistration&view=registrationform';
 		parent::__construct($config);
+    $this->app = JFactory::getApplication();
+    $this->db = JFactory::getDbo();
 	}
 
 	// show registration form
 	function display()
 	{
-		if (!JRequest::getCmd('view')) {
-			JRequest::setVar('view', 'registrationform');
+		if (!$this->app->input->get('view')) {
+			$this->app->input->set('view', 'registrationform');
 		}
 		parent::display(false);
 	}
@@ -36,22 +36,19 @@ class SimpleregistrationController extends JControllerLegacy
 	// create new user
 	function save()
 	{
-    if (JRequest::getVar('return','')) {
-        $this->_url = base64_decode(JRequest::getVar('return',''));
+    if ($this->app->get('return','')) {
+        $this->_url = base64_decode(JFactory::getApplication()->input->get('return',''));
     }
 
 		jimport('joomla.filter.filterinput');
 
-		$app = &JFactory::getApplication();
-		$db = & JFactory::getDBO();
-
-		$filter = & JFilterInput::getInstance();
-		$email = $filter->clean(JRequest::getVar('email'));
+		$filter = JFilterInput::getInstance();
+		$email = $filter->clean($this->app->input->getString('email'));
 
 		// Check that e-mail is not already taken
-		$query = 'SELECT COUNT(*) FROM #__users WHERE email = ' . $db->quote($email);
-		$db->setQuery($query);
-		if ($db->loadResult() > 0) {
+		$query = 'SELECT COUNT(*) FROM #__users WHERE email = ' . $this->db->quote($email);
+		$this->db->setQuery($query);
+		if ($this->db->loadResult() > 0) {
 			$message = "COM_SIMPLEREGISTRATION_EMAIL_EXIST";
 			$type = "error";
 			$this->setRedirect($this->_url, $message, $type);
@@ -59,12 +56,12 @@ class SimpleregistrationController extends JControllerLegacy
 		}
 
 		jimport('joomla.application.component.helper');
-		$params = & JComponentHelper::getParams('com_simpleregistration');
+		$params = JComponentHelper::getParams('com_simpleregistration');
 
 		jimport('joomla.mail.helper');
 		jimport('joomla.user.helper');
 
-		$lang = & JFactory::getLanguage();
+		$lang = JFactory::getLanguage();
 		$lang->load('com_user');
 		$lang->load('com_users');
 
@@ -75,7 +72,7 @@ class SimpleregistrationController extends JControllerLegacy
 
 		$user = JFactory::getUser(0);
 
-		$usersParams = &JComponentHelper::getParams('com_users');
+		$usersParams = JComponentHelper::getParams('com_users');
 		$usertype = $usersParams->get('new_usertype');
 
 		$data = array();
@@ -86,16 +83,13 @@ class SimpleregistrationController extends JControllerLegacy
 		$data['gid'] = $usertype;
 		$data['sendEmail'] = 0;
 
-		if ($params->get('generateusername', 0) == 1) {
+		if ($params->get('extractusername', 0) == 1) {
 			$tmp_array = explode('@', $email);
 			$data['username'] = $tmp_array[0];
 		}
 		else {
 			$data['username'] = $email;
 		}
-
-		//TODO add an option that adds a number to the username if it already exists
-		// i.e. zanardi1, zanardi2, and so on
 
 		if ($params->get('requestpassword', 0) == 0) {
 			$password = JUserHelper::genRandomPassword();
@@ -124,10 +118,9 @@ class SimpleregistrationController extends JControllerLegacy
 
 		if ($params->get('autologin', 0) == 1) {
 			$credentials = array("username" => $data['username'], "password" => $data['password']);
-			$app->login($credentials);
+      $this->app->login($credentials);
 		}
 
-		//$url = JRoute::_('index.php');
 		JController::setRedirect($this->_url, $message);
 	}
 

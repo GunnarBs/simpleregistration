@@ -17,7 +17,7 @@
 <?php endif; ?>
 
 <div class="registration">
-	<form action="<?php echo JRoute::_($this->_url."&task=register") ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
+	<form action="<?php echo JRoute::_($this->_url."&task=save") ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
 		<div class="control-group">
 			<div class="control-label">
 				<label class="label-left" for="email"><?php echo JText::_('JGLOBAL_EMAIL'); ?>: </label>
