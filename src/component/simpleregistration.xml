@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.5.0" method="upgrade">
 	<name>Simple Registration</name>
-	<version>3.0</version>
-	<creationDate>2013-03-17</creationDate>
+	<version>3.0.0</version>
+	<creationDate>2013-08-29</creationDate>
 	<author>GiBiLogic</author>
 	<authorEmail>info@gibilogic.com</authorEmail>
 	<authorUrl>http://www.gibilogic..com</authorUrl>
-	<copyright>Copyright (C) 2011-2012 GiBiLogic. All rights reserved</copyright>
-	<license>GNU General Public License &lt;http://www.fsf.org/licensing/licenses/gpl.html&gt;</license>
+	<copyright>Copyright (C) 2011-2013 GiBiLogic. All rights reserved</copyright>
+	<license>GNU GPL v2 or later</license>
 	<description><![CDATA[
 		<img src='http://extensions.gibilogic.com/images/gibilogicextensions-150x150.png' alt='' style='float: left;margin: 0 10px 10px 0' />
 		<h1>GiBi Simpleregistration</h1>
@@ -22,7 +22,6 @@
 			<filename>simpleregistration.php</filename>
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
-			<filename>index.html</filename>
 			<folder>views</folder>
 		</files>
 		<languages folder="language/backend">
@@ -35,7 +34,6 @@
 	<files folder="frontend">
 		<filename>simpleregistration.php</filename>
 		<filename>controller.php</filename>
-		<filename>index.html</filename>
 		<folder>views</folder>
 	</files>
 	<languages folder="language/frontend">

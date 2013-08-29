@@ -16,13 +16,14 @@
 	<property name="package.name" value="pkg_simpleregistration" />
 	<property name="dir.component" location="../src/component" />
 	<property name="dir.module" location="../src/module" />
+	<property name="dir.package" location="../src/package" />
 	<property name="dir.release" location="../release" />
 
 	<target name="package">
 		<echo message="Building the ZIP packages..." />
-		<zip destfile="${dir.release}/${component.name}.zip" basedir="${dir.component}" whenempty="fail" />
-		<zip destfile="${dir.release}/${module.name}.zip" basedir="${dir.module}" whenempty="fail" />
-		<zip destfile="${dir.release}/${package.name}.zip" basedir="${dir.release}" excludes="${package.name}*" whenempty="fail" />
+		<zip destfile="${dir.package}/${component.name}.zip" basedir="${dir.component}" whenempty="fail" />
+		<zip destfile="${dir.package}/${module.name}.zip" basedir="${dir.module}" whenempty="fail" />
+		<zip destfile="${dir.release}/${package.name}.zip" basedir="${dir.package}" whenempty="fail" />
 	</target>
 
 	<target name="Deploy on local test site (/var/www)">

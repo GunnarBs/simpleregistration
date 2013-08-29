@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="2.5.0" method="upgrade">
     <name>Simple Registration</name>
-    <version>3.0</version>
+    <version>3.0.0</version>
     <creationDate>2013-08-28</creationDate>
     <author>GiBiLogic</author>
     <authorEmail>info@gibilogic.com</authorEmail>
     <authorUrl>http://www.gibilogic..com</authorUrl>
     <copyright>Copyright (C) 2011-2013 GiBiLogic. All rights reserved</copyright>
-    <license>GNU General Public License &lt;http://www.fsf.org/licensing/licenses/gpl.html&gt;</license>
+    <license>GNU GPL v2 or later</license>
     <description><![CDATA[
 		<img src='http://extensions.gibilogic.com/images/gibilogicextensions-150x150.png' alt='' style='float: left;margin: 0 10px 10px 0' />
 		<h1>GiBi Simpleregistration</h1>
@@ -17,5 +17,6 @@
 	]]></description>
     <files>
         <filename module="mod_simpleregistration">mod_simpleregistration.php</filename>
+        <folder>tmpl</folder>
     </files>
 </extension>
