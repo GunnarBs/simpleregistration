@@ -101,8 +101,8 @@ class SimpleregistrationController extends JControllerLegacy
 		$data['password1'] = $password;
 		$data['password2'] = $password;
 
-		require_once(JPATH_SITE . '/components/com_users/models/registration.php');
-		$model = new UsersModelRegistration();
+		require_once(JPATH_COMPONENT. '/models/registration.php');
+		$model = new SimpleregistrationModelRegistration();
 		$activation = $model->register($data);
 
 		switch ($activation) {
