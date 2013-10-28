@@ -1,14 +1,13 @@
 <?php
 /**
- * @version		  controller.php 2013-08-29 20:25:00 UTC zanardi
+ * @version		  controller.php 2013-10-28 19:04:00 UTC zanardi
  * @package		  GiBi SimpleRegistration
- * @author      GiBiLogic
- * @authorEmail info@gibilogic.com
+ * @author      GiBiLogic <info@gibilogic.com>
  * @authorUrl   http://www.gibilogic.com
  * @copyright	  Copyright (C) 2011-2013 GiBiLogic. All rights reserved.
  * @license		  GNU/GPL v2 or later
  */
-defined('_JEXEC') or die('The way is shut');
+defined('_JEXEC') or die;
 jimport('joomla.application.component.controller');
 jimport('joomla.html.parameter');
 
@@ -49,7 +48,7 @@ class SimpleregistrationController extends JControllerLegacy
 		$query = 'SELECT COUNT(*) FROM #__users WHERE email = ' . $this->db->quote($email);
 		$this->db->setQuery($query);
 		if ($this->db->loadResult() > 0) {
-			$message = "COM_SIMPLEREGISTRATION_EMAIL_EXIST";
+			$message = JText::_("COM_SIMPLEREGISTRATION_EMAIL_EXIST");
 			$type = "error";
 			$this->setRedirect($this->url, $message, $type);
 			return false;
