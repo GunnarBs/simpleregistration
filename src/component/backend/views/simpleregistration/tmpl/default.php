@@ -1,15 +1,15 @@
-<?php defined('_JEXEC') or die('The way is shut!');
+<?php
 /**
-* @version		  $Id: views/simpleregistration/tmpl/default.php 2013-03-17 15:35:00Z zanardi $
+ * @version		  backend/views/simpleregistration/tmpl/default.php 2014-01-26 19:58:00 UTC zanardi
 * @package		  GiBi SimpleRegistration
-* @author       GiBiLogic
-* @authorEmail  info@gibilogic.com
+* @author       GiBiLogic <info@gibilogic.com>
 * @authorUrl    http://www.gibilogic.com
-* @copyright	  Copyright (C) 2011-2013 GiBiLogic snc. All rights reserved.
-* @license		  GNU/GPL v2 or later
+* @copyright	  Copyright (C) 2011-2014 GiBiLogic snc. All rights reserved.
+* @license		  GNU/GPL v3 or later
 */
+defined('_JEXEC') or die();
 
-JToolBarHelper::title( JText::_( 'SIMPLEREGISTRATION' ), 'generic.png' );
-JToolBarHelper::preferences( 'com_simpleregistration' );
+JToolBarHelper::title(JText::_('COM_SIMPLEREGISTRATION'), 'generic.png');
+JToolBarHelper::preferences('com_simpleregistration' );
 ?>
-<p><?php echo JText::_('SIMPLEREGISTRATION_USAGE') ?></p>
+<p><?php echo JText::_('COM_SIMPLEREGISTRATION_USAGE') ?></p>
