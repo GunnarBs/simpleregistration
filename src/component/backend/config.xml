@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<fieldset name="component">
-		<field name="requestpassword" default="0" type="radio" class="btn-group" label="SIMPLEREGISTRATION_PARAMS_REQUESTPASSWORD_LABEL" description="SIMPLEREGISTRATION_PARAMS_REQUESTPASSWORD_DESC">
-			<option value="0">JNo</option>
-			<option value="1">JYes</option>
-		</field>
-		<field name="extractusername" default="0" type="radio" class="btn-group" label="SIMPLEREGISTRATION_PARAMS_EXTRACTUSERNAME_LABEL" description="SIMPLEREGISTRATION_PARAMS_EXTRACTUSERNAME_DESC">
-			<option value="0">JNo</option>
-			<option value="1">JYes</option>
-		</field>
-		<field name="autologin" default="0" type="radio" class="btn-group" label="SIMPLEREGISTRATION_PARAMS_AUTOLOGIN_LABEL" description="SIMPLEREGISTRATION_PARAMS_AUTOLOGIN_DESC">
-			<option value="0">JNo</option>
-			<option value="1">JYes</option>
-		</field>
-	</fieldset>
+    <fieldset name="component">
+        <field name="mootools" default="1" type="radio" class="btn-group" label="COM_SIMPLEREGISTRATION_PARAMS_MOOTOOLS_LABEL" description="COM_SIMPLEREGISTRATION_PARAMS_MOOTOOLS_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="requestpassword" default="0" type="radio" class="btn-group" label="COM_SIMPLEREGISTRATION_PARAMS_REQUESTPASSWORD_LABEL" description="COM_SIMPLEREGISTRATION_PARAMS_REQUESTPASSWORD_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="extractusername" default="0" type="radio" class="btn-group" label="COM_SIMPLEREGISTRATION_PARAMS_EXTRACTUSERNAME_LABEL" description="COM_SIMPLEREGISTRATION_PARAMS_EXTRACTUSERNAME_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="autologin" default="0" type="radio" class="btn-group" label="COM_SIMPLEREGISTRATION_PARAMS_AUTOLOGIN_LABEL" description="COM_SIMPLEREGISTRATION_PARAMS_AUTOLOGIN_DESC">
+            <option value="0">JNO</option>
+            <option value="1">JYES</option>
+        </field>
+        <field name="redirect" type="menuitem" default="1" label="COM_SIMPLEREGISTRATION_PARAMS_REDIRECT_LABEL" description="COM_SIMPLEREGISTRATION_PARAMS_REDIRECT_DESC" />
+    </fieldset>
 </config>
