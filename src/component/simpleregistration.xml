@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="1.5.0" method="upgrade">
+<extension type="component" version="2.5.0" method="upgrade">
 	<name>Simple Registration</name>
-	<version>3.0.2</version>
-	<creationDate>2013-10-28</creationDate>
+	<version>3.1.0</version>
+	<creationDate>2014-01-26</creationDate>
 	<author>GiBiLogic</author>
 	<authorEmail>info@gibilogic.com</authorEmail>
-	<authorUrl>http://www.gibilogic..com</authorUrl>
-	<copyright>Copyright (C) 2011-2013 GiBiLogic. All rights reserved</copyright>
-	<license>GNU GPL v2 or later</license>
+	<authorUrl>http://www.gibilogic.com</authorUrl>
+	<copyright>Copyright (C) 2011-2014 GiBiLogic. All rights reserved</copyright>
+	<license>GNU/GPL v3 or later</license>
 	<description><![CDATA[
 		<img src='http://extensions.gibilogic.com/images/gibilogicextensions-150x150.png' alt='' style='float: left;margin: 0 10px 10px 0' />
 		<h1>GiBi Simpleregistration</h1>
@@ -29,6 +29,8 @@
 			<language tag="en-GB">en-GB.com_simpleregistration.sys.ini</language>
 			<language tag="it-IT">it-IT.com_simpleregistration.ini</language>
 			<language tag="it-IT">it-IT.com_simpleregistration.sys.ini</language>
+			<language tag="ru-RU">ru-RU.com_simpleregistration.ini</language>
+			<language tag="ru-RU">ru-RU.com_simpleregistration.sys.ini</language>
 		</languages>
 	</administration>
 	<files folder="frontend">
@@ -40,5 +42,6 @@
 	<languages folder="language/frontend">
 		<language tag="en-GB">en-GB.com_simpleregistration.ini</language>
 		<language tag="it-IT">it-IT.com_simpleregistration.ini</language>
+		<language tag="ru-RU">ru-RU.com_simpleregistration.ini</language>
     </languages>
 </extension>
