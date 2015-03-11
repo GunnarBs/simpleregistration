@@ -36,7 +36,7 @@ defined('_JEXEC') or die();
             </div>
         <?php endif ?>
         <div id="register-button">
-            <button id="submit" type="submit" class="button btn btn-primary">
+            <button id="submit" type="submit" class="btn btn-primary">
                 <?php echo JText::_('JREGISTER') ?>
             </button>
         </div>
